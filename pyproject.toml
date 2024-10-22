@@ -1,0 +1,30 @@
+[project]
+name = "cable"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "konstin", email = "konstin@mailbox.org" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.optional-dependencies]
+cli = [
+    "cable-cli",
+]
+experiments = [
+    "cable-experiments",
+]
+
+[tool.uv.sources]
+cable-core = { workspace = true }
+cable-cli = { workspace = true }
+cable-experiments = { workspace = true }
+
+[tool.uv.workspace]
+members = ["packages/*"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

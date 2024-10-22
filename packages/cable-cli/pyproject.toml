@@ -1,0 +1,18 @@
+[project]
+name = "cable-cli"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "konstin", email = "konstin@mailbox.org" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "cable-core",
+]
+[project.scripts]
+cable = "cable_cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+

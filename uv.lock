@@ -1,0 +1,56 @@
+version = 1
+requires-python = ">=3.12"
+
+[manifest]
+members = [
+    "cable",
+    "cable-cli",
+    "cable-core",
+    "cable-experiments",
+]
+
+[[package]]
+name = "cable"
+version = "0.1.0"
+source = { editable = "." }
+
+[package.optional-dependencies]
+cli = [
+    { name = "cable-cli" },
+]
+experiments = [
+    { name = "cable-experiments" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "cable-cli", marker = "extra == 'cli'", editable = "packages/cable-cli" },
+    { name = "cable-experiments", marker = "extra == 'experiments'", editable = "packages/cable-experiments" },
+]
+
+[[package]]
+name = "cable-cli"
+version = "0.1.0"
+source = { editable = "packages/cable-cli" }
+dependencies = [
+    { name = "cable-core" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "cable-core", editable = "packages/cable-core" }]
+
+[[package]]
+name = "cable-core"
+version = "0.1.0"
+source = { editable = "packages/cable-core" }
+
+[[package]]
+name = "cable-experiments"
+version = "0.1.0"
+source = { editable = "packages/cable-experiments" }
+dependencies = [
+    { name = "cable-core" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "cable-core", editable = "packages/cable-core" }]
